@@ -1,0 +1,2558 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SaasEcom.Core</name>
+    </assembly>
+    <members>
+        <member name="T:SaasEcom.Core.DataServices.Interfaces.ICardDataService">
+            <summary>
+            Interface for CRUD related to credit cards in the database.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.GetAllAsync(System.String)">
+            <summary>
+            	<para>Gets all credit cards for an user from the database.</para>
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.FindAsync(System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>Finds the credit card asynchronously from the database given the user identifier and credit card identifier.</summary>
+            <param name="userId">The user identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <param name="noTracking">if set to <c>true</c> [no tracking].</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.AddAsync(SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            	<para>Adds the credit card asynchronously to the database.</para>
+            </summary>
+            <param name="creditcard">The creditcard.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.AddOrUpdateDefaultCardAsync(System.String,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Adds or update default card asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="creditCard">The credit card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.UpdateAsync(System.String,SaasEcom.Core.Models.CreditCard)">
+            <summary>Updates the credit card for a user in the database.</summary>
+            <param name="userId">The user identifier.</param>
+            <param name="creditCard">The credit card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.DeleteAsync(System.String,System.Int32)">
+            <summary>Deletes the credit card from the database.</summary>
+            <param name="userId">The user identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ICardDataService.AnyAsync(System.Nullable{System.Int32},System.String)">
+            <summary>Checks if there is any card existing in the DB given the card identifier and user identifier.</summary>
+            <param name="cardId">The card identifier.</param>
+            <param name="userId">The customer identifier.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Interfaces.IInvoiceDataService">
+            <summary>
+            Interface for CRUD related to invoices in the database.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.IInvoiceDataService.UserInvoicesAsync(System.String)">
+            <summary>
+            Gets the User's invoices asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>List of invoices.</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.IInvoiceDataService.UserInvoiceAsync(System.String,System.Int32)">
+            <summary>
+            Gets the invoice given a users identifier and the invoice identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="invoiceId">The invoice identifier.</param>
+            <returns>The invoice</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.IInvoiceDataService.CreateOrUpdateAsync(SaasEcom.Core.Models.Invoice)">
+            <summary>
+            Creates the or update asynchronous.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.IInvoiceDataService.GetInvoicesAsync">
+            <summary>
+            Gets all the invoices asynchronous.
+            </summary>
+            <returns>List of invoices.</returns>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService">
+            <summary>
+            Interface for CRUD related to subscriptions in the database.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.FindById(System.String)">
+            <summary>
+            Finds the by identifier.
+            </summary>
+            <param name="stripeSubscriptionId">The stripe subscription identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.SubscribeUserAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.Int32},System.Decimal,System.String)">
+            <summary>
+            Subscribes the user asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialPeriodInDays">The trial period in days.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <param name="stripeId">The stripe identifier.</param>
+            <returns>
+            The subscription
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.SubscribeUserAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.DateTime},System.Decimal,System.String)">
+            <summary>
+            Subscribes the user asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialPeriodEnds">The trial period ends.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <param name="stripeId">The stripe identifier.</param>
+            <returns>
+            The subscription
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.UserSubscriptionsAsync(System.String)">
+            <summary>
+            Gets the User's subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.UserActiveSubscriptionAsync(System.String)">
+            <summary>
+            Get the User's active subscription asynchronous. Only the first (valid if your customers can have only 1 subscription at a time).
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>The subscription</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.UserActiveSubscriptionsAsync(System.String)">
+            <summary>
+            Get the User's active subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>The list of Subscriptions</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.EndSubscriptionAsync(System.Int32,System.DateTime,System.String)">
+            <summary>
+            Ends the subscription asynchronous.
+            </summary>
+            <param name="subscriptionId">The subscription identifier.</param>
+            <param name="subscriptionEnDateTime">The subscription en date time.</param>
+            <param name="reasonToCancel">The reason to cancel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.UpdateSubscriptionAsync(SaasEcom.Core.Models.Subscription)">
+            <summary>
+            Updates the subscription asynchronous.
+            </summary>
+            <param name="subscription">The subscription.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.UpdateSubscriptionTax(System.String,System.Decimal)">
+            <summary>
+            Updates the subscription tax.
+            </summary>
+            <param name="subscriptionId">The subscription identifier.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService.DeleteSubscriptionsAsync(System.String)">
+            <summary>
+            Deletes the subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService">
+            <summary>
+            Interface for CRUD related to subscription plans in the database.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.GetAllAsync">
+            <summary>
+            Gets all subscription plans asynchronous.
+            </summary>
+            <returns>List of Subscription Plans</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.FindAsync(System.String)">
+            <summary>
+            Finds the subscription plans asynchronous.
+            </summary>
+            <param name="subscriptionPlanId">The subscription plan identifier.</param>
+            <returns>The subscription plan</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.AddAsync(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Adds the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlan">The subscription plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.UpdateAsync(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Updates the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlan">The subscription plan.</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.DeleteAsync(System.String)">
+            <summary>
+            Deletes the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlanId">The subscription plan identifier.</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.DisableAsync(System.String)">
+            <summary>
+            Disables the subscription plan asynchronous. Useful when you don't want to subscribe more users to this plan, but you still want to maintain your current subscribers.
+            </summary>
+            <param name="subscriptionPlanId">The subscription plan identifier.</param>
+            <returns>int</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService.CountUsersAsync(System.String)">
+            <summary>
+            Counts the users subscribed to a given plan asynchronous.
+            </summary>
+            <param name="subscriptionPlanId">The subscription plan identifier.</param>
+            <returns>The number of users subscribed.</returns>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.SaasEcomDbContext`1">
+            <summary>
+            Implementation of the Base database context.
+            </summary>
+            <typeparam name="TUser">The type of the user.</typeparam>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.IDbContext`1">
+            <summary>
+            Interface for Database context.
+            </summary>
+            <typeparam name="TUser">The type of the user.</typeparam>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.IDbContext`1.SaveChangesAsync">
+            <summary>
+            Saves the changes asynchronous.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.IDbContext`1.Entry``1(``0)">
+            <summary>
+            Entries the specified entity.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.IDbContext`1.Users">
+            <summary>
+            Gets or sets the users.
+            </summary>
+            <value>
+            The users.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.IDbContext`1.Subscriptions">
+            <summary>
+            Gets or sets the subscriptions.
+            </summary>
+            <value>
+            The subscriptions.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.IDbContext`1.SubscriptionPlans">
+            <summary>
+            Gets or sets the subscription plans.
+            </summary>
+            <value>
+            The subscription plans.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.IDbContext`1.Invoices">
+            <summary>
+            Gets or sets the invoices.
+            </summary>
+            <value>
+            The invoices.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.IDbContext`1.CreditCards">
+            <summary>
+            Gets or sets the credit cards.
+            </summary>
+            <value>
+            The credit cards.
+            </value>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.SaasEcomDbContext`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.DataServices.SaasEcomDbContext`1"/> class.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.SaasEcomDbContext`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.DataServices.SaasEcomDbContext`1"/> class.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.SaasEcomDbContext`1.SaveChangesAsync">
+            <summary>
+            Saves the changes asynchronous.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.SaasEcomDbContext`1.Entry``1(``0)">
+            <summary>
+            Entries the specified entity.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.SaasEcomDbContext`1.SaasEcom#Core#DataServices#IDbContext{TUser}#Users">
+            <summary>
+            Gets or sets the users.
+            </summary>
+            <value>
+            The users.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.SaasEcomDbContext`1.Subscriptions">
+            <summary>
+            Gets or sets the subscriptions.
+            </summary>
+            <value>
+            The subscriptions.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.SaasEcomDbContext`1.SubscriptionPlans">
+            <summary>
+            Gets or sets the subscription plans.
+            </summary>
+            <value>
+            The subscription plans.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.SaasEcomDbContext`1.SubscriptionPlanProperties">
+            <summary>
+            Gets or sets the subscription plan properties.
+            </summary>
+            <value>
+            The subscription plan properties.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.SaasEcomDbContext`1.Invoices">
+            <summary>
+            Gets or sets the invoices.
+            </summary>
+            <value>
+            The invoices.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.DataServices.SaasEcomDbContext`1.CreditCards">
+            <summary>
+            Gets or sets the credit cards.
+            </summary>
+            <value>
+            The credit cards.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Storage.CardDataService`2">
+            <summary>
+            Implementation for CRUD related to credit cards in the database.
+            </summary>
+            <typeparam name="TContext">The type of the context.</typeparam>
+            <typeparam name="TUser">The type of the user.</typeparam>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.DataServices.Storage.CardDataService`2"/> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.GetAllAsync(System.String)">
+            <summary>
+            Gets all credit cards for an user.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Customer Id: {0} doesn't exist.</exception>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.FindAsync(System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Finds the credit card.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <param name="noTracking">if set to <c>true</c> [no tracking].</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.AnyAsync(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Checks if there is any card existing in the DB.
+            </summary>
+            <param name="cardId">The card identifier.</param>
+            <param name="userId">The customer identifier.</param>
+            <returns>
+            bool
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.AddAsync(SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Adds the credit card.
+            </summary>
+            <param name="creditCard">The credit card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.UpdateAsync(System.String,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Updates the credit card.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="creditCard">The credit card.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">cardId</exception>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.CardDataService`2.DeleteAsync(System.String,System.Int32)">
+            <summary>
+            Deletes the credit card.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">cardId</exception>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2">
+            <summary>
+            Implementation for CRUD related to invoices in the database.
+            </summary>
+            <typeparam name="TContext">The type of the context.</typeparam>
+            <typeparam name="TUser">The type of the user.</typeparam>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2"/> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2.UserInvoicesAsync(System.String)">
+            <summary>
+            Returns all the invoice given a user identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>List of invoices</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2.UserInvoiceAsync(System.String,System.Int32)">
+            <summary>
+            Gets the invoice given a users identifier and the invoice identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="invoiceId">The invoice identifier.</param>
+            <returns>
+            The invoice
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2.CreateOrUpdateAsync(SaasEcom.Core.Models.Invoice)">
+            <summary>
+            Creates the or update asynchronous.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>
+            int
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.InvoiceDataService`2.GetInvoicesAsync">
+            <summary>
+            Gets all the invoices asynchronous.
+            </summary>
+            <returns>
+            List of invoices.
+            </returns>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2">
+            <summary>
+            Implementation for CRUD related to subscriptions in the database.
+            </summary>
+            <typeparam name="TContext">The type of the context.</typeparam>
+            <typeparam name="TUser">The type of the user.</typeparam>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2"/> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.FindById(System.String)">
+            <summary>
+            Finds the by identifier.
+            </summary>
+            <param name="stripeSubscriptionId">The stripe subscription identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.SubscribeUserAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.Int32},System.Decimal,System.String)">
+            <summary>
+            Subscribes the user asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialPeriodInDays">The trial period in days.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <param name="stripeId">The stripe identifier.</param>
+            <returns>
+            The subscription
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.SubscribeUserAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.DateTime},System.Decimal,System.String)">
+            <summary>
+            Subscribes the user asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialPeriodEnds">The trial period ends.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <param name="stripeId">The stripe identifier.</param>
+            <returns>
+            The subscription
+            </returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.UserActiveSubscriptionAsync(System.String)">
+            <summary>
+            Get the User's active subscription asynchronous. Only the first (valid if your customers can have only 1 subscription at a time).
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>
+            The subscription
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.UserSubscriptionsAsync(System.String)">
+            <summary>
+            Gets the User's subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.UserActiveSubscriptionsAsync(System.String)">
+            <summary>
+            Get the User's active subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>
+            The list of Subscriptions
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.EndSubscriptionAsync(System.Int32,System.DateTime,System.String)">
+            <summary>
+            Ends the subscription asynchronous.
+            </summary>
+            <param name="subscriptionId">The subscription identifier.</param>
+            <param name="subscriptionEnDateTime">The subscription en date time.</param>
+            <param name="reasonToCancel">The reason to cancel.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.UpdateSubscriptionAsync(SaasEcom.Core.Models.Subscription)">
+            <summary>
+            Updates the subscription asynchronous.
+            </summary>
+            <param name="subscription">The subscription.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.UpdateSubscriptionTax(System.String,System.Decimal)">
+            <summary>
+            Updates the subscription tax.
+            </summary>
+            <param name="subscriptionId">The subscription identifier.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionDataService`2.DeleteSubscriptionsAsync(System.String)">
+            <summary>
+            Deletes the subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2">
+            <summary>
+            Implementation for CRUD related to subscription plans in the database.
+            </summary>
+            <typeparam name="TContext">The type of the context.</typeparam>
+            <typeparam name="TUser">The type of the user.</typeparam>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2"/> class.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.GetAllAsync">
+            <summary>
+            Gets all subscription plans asynchronous.
+            </summary>
+            <returns>
+            List of Subscription Plans
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.FindAsync(System.String)">
+            <summary>
+            Finds the subscription plan asynchronously.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+            <returns>SubscriptionPlan</returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.AddAsync(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Adds the subscription plan asynchronously.
+            </summary>
+            <param name="plan">The plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.UpdateAsync(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Updates the subscription plan asynchronously.
+            </summary>
+            <param name="plan">The plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.DeleteAsync(System.String)">
+            <summary>
+            Deletes the subscription plan asynchronously.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.DisableAsync(System.String)">
+            <summary>
+            Disables the subscription plan asynchronously.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.DataServices.Storage.SubscriptionPlanDataService`2.CountUsersAsync(System.String)">
+            <summary>
+            Counts the users subscribed to a plan.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade">
+            <summary>
+            Subscription Plans Facade to manage the subscription plans for your application.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade.#ctor(SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService,SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="planProvider">The plan provider.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade.GetAllAsync">
+            <summary>
+            Gets all subscription plans asynchronous.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade.AddAsync(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Adds the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlan">The subscription plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade.UpdateAsync(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Updates the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlan">The subscription plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade.DeleteAsync(System.String)">
+            <summary>
+            Deletes the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlanId">The subscription plan identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">subscriptionPlanId</exception>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionPlansFacade.FindAsync(System.String)">
+            <summary>
+            Finds the subscription plan asynchronous.
+            </summary>
+            <param name="subscriptionPlanId">The subscription plan identifier.</param>
+            <returns>The Subscription Plan</returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade">
+            <summary>
+            Subscriptions Facade to manage the subscription for your application's users.
+            </summary>
+            <remarks>
+            	<para>This is one of the main classes that you will instantiate from your application to interact with SaasEcom.Core. This class is using internally the data
+            services to store all the billing related data in the database, as well as the Payment Provider to inegrate all the billing data with Stripe and keep it in
+            sync.</para>
+            </remarks>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.#ctor(SaasEcom.Core.DataServices.Interfaces.ISubscriptionDataService,SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider,SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider,SaasEcom.Core.DataServices.Interfaces.ICardDataService,SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICustomerProvider,SaasEcom.Core.DataServices.Interfaces.ISubscriptionPlanDataService,SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.IChargeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade"/> class.
+            </summary>
+            <param name="data">The subscription data service.</param>
+            <param name="subscriptionProvider">The subscription provider.</param>
+            <param name="cardProvider">The card provider.</param>
+            <param name="cardDataService">The card data service.</param>
+            <param name="customerProvider">The customer provider.</param>
+            <param name="subscriptionPlanDataService">The subscription plan data service.</param>
+            <param name="chargeProvider">The charge provider.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.SubscribeUserAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Decimal,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Subscribes the user to a Stripe plan. If the user doesn't exist in Stripe, is created
+            </summary>
+            <param name="user">Application User</param>
+            <param name="planId">Plan Id to subscribe the user to</param>
+            <param name="taxPercent">The tax percent.</param>
+            <param name="creditCard">The credit card.</param>
+            <returns>
+            Subscription
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.SubscribeUserAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,SaasEcom.Core.Models.CreditCard,System.Int32,System.Decimal)">
+            <summary>
+            Subscribe an existing user to a plan.
+            </summary>
+            <param name="user">Application User</param>
+            <param name="planId">Stripe plan Id</param>
+            <param name="creditCard">Credit card to pay this subscription.</param>
+            <param name="trialInDays">The trial in days.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.UpdateSubscriptionTax(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Decimal)">
+            <summary>
+            Updates the subscription tax.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="subscriptionId">The subscription stripe identifier.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.EndSubscriptionAsync(System.Int32,SaasEcom.Core.Models.SaasEcomUser,System.Boolean,System.String)">
+            <summary>
+            Cancel subscription from Stripe
+            </summary>
+            <param name="subscriptionId">Stripe subscription Id</param>
+            <param name="user">Application user</param>
+            <param name="cancelAtPeriodEnd">Cancel immediately or when the paid period ends (default immediately)</param>
+            <param name="reasonToCancel">The reason to cancel.</param>
+            <returns>The Date when the subscription ends (it can be future if cancelAtPeriodEnd is true)</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.UpdateSubscriptionAsync(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Change Subscription Plan (Upgrade / Downgrade) (When the user can have only one active subscription)
+            </summary>
+            <param name="userId">Application User Id</param>
+            <param name="stripeUserId">Stripe User Id</param>
+            <param name="newPlanId">New Subscription Plan Id</param>
+            <param name="proRate">if set to <c>true</c> [pro rate].</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.UpdateSubscriptionAsync(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Updates the subscription asynchronous, if the new plan is more expensive the customer is charged immediately
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="stripeUserId">The stripe user identifier.</param>
+            <param name="stripeSubscriptionId">The current subscription stripe identifier.</param>
+            <param name="newPlanId">The new plan identifier.</param>
+            <param name="proRate">if set to <c>true</c> [pro rate].</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.DefaultCreditCard(System.String)">
+            <summary>
+            Get the default payment credit card for a user.
+            </summary>
+            <param name="userId">Application User Id</param>
+            <returns>Credit Card or Null</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.UserActiveSubscriptionsAsync(System.String)">
+            <summary>
+            Get a list of active subscriptions for the User
+            </summary>
+            <param name="userId">Application User Id</param>
+            <returns>List of Active Subscriptions</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Facades.SubscriptionsFacade.DaysTrialLeftAsync(System.String)">
+            <summary>This method returns the number of days of trial left for a given user. It will return 0 if there aren't any days left or no active subscriptions for the user.</summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+            <exception caption="" cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Helpers.CurrencyHelper">
+            <summary>
+            Helper class to get details about the different currencies.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Helpers.CurrencyHelper.GetCurrencyInfo(System.String)">
+            <summary>
+            Gets the currency information.
+            </summary>
+            <param name="isoCurrency">The iso currency.</param>
+            <returns>The currency</returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="F:SaasEcom.Core.Infrastructure.Helpers.CurrencyHelper.Currencies">
+            <summary>
+            List of currencies
+            </summary>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Helpers.Currency">
+            <summary>
+            Currency
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Infrastructure.Helpers.Currency.CurrencyEnglishName">
+            <summary>
+            Gets or sets the name of the currency english.
+            </summary>
+            <value>
+            The name of the currency english.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Infrastructure.Helpers.Currency.CurrencyNativeName">
+            <summary>
+            Gets or sets the name of the currency native.
+            </summary>
+            <value>
+            The name of the currency native.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Infrastructure.Helpers.Currency.CurrencySymbol">
+            <summary>
+            Gets or sets the currency symbol.
+            </summary>
+            <value>
+            The currency symbol.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Infrastructure.Helpers.Currency.IsoCurrencySymbol">
+            <summary>
+            Gets or sets the iso currency symbol.
+            </summary>
+            <value>
+            The iso currency symbol.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Helpers.EuropeanVat">
+            <summary>
+            List of Tax rates for European countries.
+            Ref: http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf
+            Last Updated: 12 Jan 2015
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Infrastructure.Helpers.EuropeanVat.Countries">
+            <summary>
+            Gets the countries.
+            </summary>
+            <value>
+            The countries.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Helpers.GeoLocation">
+            <summary>
+            Helper class to retrieve user's IP and Location
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.Helpers.GeoLocation.GetUserIP(System.Web.HttpRequestBase)">
+            <summary>
+            Gets the user ip.
+            </summary>
+            <param name="request">The request.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.Mappers">
+            <summary>
+            Mapper for Stripe classes to SaasEcom classes
+            </summary>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider">
+            <summary>
+            Interface for CRUD related to credit cards with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider.AddAsync(SaasEcom.Core.Models.SaasEcomUser,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Adds the credit card asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="card">The card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider.UpdateAsync(SaasEcom.Core.Models.SaasEcomUser,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Updates the credit card asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="creditcard">The creditcard.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider.DeleteAsync(System.String,System.String,System.Int32)">
+            <summary>
+            Deletes the credit card asynchronous.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="custStripeId">The customer stripe identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider.GetAllAsync(System.String)">
+            <summary>
+            Gets all the credit cards asynchronous.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <returns>The list of credit cards</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider.FindAsync(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Finds the credit card asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <returns>The credit card</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICardProvider.CardBelongToUser(System.Int32,System.String)">
+            <summary>
+            Check if the Card belong to user.
+            </summary>
+            <param name="cardId">The card identifier.</param>
+            <param name="userId">The user identifier.</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.IChargeProvider">
+            <summary>
+            Interface for CRUD related to charges with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.IChargeProvider.CreateCharge(System.Int32,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Creates the charge.
+            </summary>
+            <param name="amount">The amount: A positive integer in the smallest currency unit (e.g 100 cents to charge $1.00, or 1 to charge ¥1, a 0-decimal currency) representing how much to charge the card. The minimum amount is $0.50 (or equivalent in charge currency).</param>
+            <param name="currency">The currency: Three-letter ISO currency code representing the currency in which the charge was made.</param>
+            <param name="description">The description: An arbitrary string which you can attach to a charge object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the description of the charge(s) that they are describing.</param>
+            <param name="customerId">The customer identifier: The ID of an existing customer that will be charged in this request.</param>
+            <param name="error">The error.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICustomerProvider">
+            <summary>
+            Interface for CRUD related to customers with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICustomerProvider.CreateCustomerAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Creates the customer asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialEnd">The trial end.</param>
+            <param name="cardToken">The card token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICustomerProvider.UpdateCustomer(SaasEcom.Core.Models.SaasEcomUser,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Updates the customer.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="card">The card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ICustomerProvider.DeleteCustomer(SaasEcom.Core.Models.SaasEcomUser)">
+            <summary>
+            Deletes the customer.
+            </summary>
+            <param name="user">The user.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider">
+            <summary>
+            Interface for CRUD related to subscription plans with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider.Add(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Adds the specified plan.
+            </summary>
+            <param name="plan">The plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider.Update(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Updates the specified plan.
+            </summary>
+            <param name="plan">The plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider.Delete(System.String)">
+            <summary>
+            Deletes the specified plan identifier.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider.FindAsync(System.String)">
+            <summary>
+            Finds the subscription plan asynchronous.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionPlanProvider.GetAllAsync(System.Object)">
+            <summary>
+            Gets all subscription plans asynchronous.
+            </summary>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider">
+            <summary>
+            Interface for subscription management with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider.SubscribeUser(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Int32,System.Decimal)">
+            <summary>
+            Subscribes the user.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialInDays">The trial in days.</param>
+            <param name="taxPercent">The tax percent.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider.SubscribeUser(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.DateTime},System.Decimal)">
+            <summary>
+            Subscribes the user.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialEnds">The trial ends.</param>
+            <param name="taxPercent">The tax percent.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider.UserSubscriptionsAsync(System.String)">
+            <summary>
+            Gets the User's subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider.EndSubscription(System.String,System.String,System.Boolean)">
+            <summary>
+            Ends the subscription.
+            </summary>
+            <param name="userStripeId">The user stripe identifier.</param>
+            <param name="subStripeId">The sub stripe identifier.</param>
+            <param name="cancelAtPeriodEnd">if set to <c>true</c> [cancel at period end].</param>
+            <returns>The date when the subscription will be cancelled</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider.UpdateSubscription(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Updates the subscription. (Change subscription plan)
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="subStripeId">The sub stripe identifier.</param>
+            <param name="newPlanId">The new plan identifier.</param>
+            <param name="proRate">if set to <c>true</c> [pro rate].</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces.ISubscriptionProvider.UpdateSubscriptionTax(System.String,System.String,System.Decimal)">
+            <summary>
+            Updates the subscription tax.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="subStripeId">The sub stripe identifier.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider">
+            <summary>
+            Implementation for CRUD related to credit cards with Stripe and also saves the details in the database. 
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.#ctor(System.String,SaasEcom.Core.DataServices.Interfaces.ICardDataService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider"/> class.
+            </summary>
+            <param name="apiKey">The API key.</param>
+            <param name="cardDataService">The card data service.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.GetAllAsync(System.String)">
+            <summary>
+            Gets all the credit cards asynchronous.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <returns>
+            The list of credit cards
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.FindAsync(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Finds the credit card asynchronous.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="cardId">The card identifier.</param>
+            <returns>Credit card</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.AddAsync(SaasEcom.Core.Models.SaasEcomUser,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Adds the credit card asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="card">The card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.UpdateAsync(SaasEcom.Core.Models.SaasEcomUser,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Updates the credit card asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="creditcard">The creditcard.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.CardBelongToUser(System.Int32,System.String)">
+            <summary>
+            Check if the Card belong to user.
+            </summary>
+            <param name="cardId">The card identifier.</param>
+            <param name="userId">The user identifier.</param>
+            <returns>
+            true or false
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CardProvider.DeleteAsync(System.String,System.String,System.Int32)">
+            <summary>
+            Deletes the credit card asynchronous.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="custStripeId">The customer stripe identifier.</param>
+            <param name="cardId">The Card identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.ChargeProvider">
+            <summary>
+            Implementation for CRUD related to charges with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.ChargeProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.ChargeProvider"/> class.
+            </summary>
+            <param name="apiKey">The API key.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.ChargeProvider.CreateCharge(System.Int32,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Creates the charge.
+            </summary>
+            <param name="amount">The amount: A positive integer in the smallest currency unit (e.g 100 cents to charge $1.00, or 1 to charge ¥1, a 0-decimal currency) representing how much to charge the card. The minimum amount is $0.50 (or equivalent in charge currency).</param>
+            <param name="currency">The currency: Three-letter ISO currency code representing the currency in which the charge was made.</param>
+            <param name="description">The description: An arbitrary string which you can attach to a charge object. It is displayed when in the web interface alongside the charge. Note that if you use Stripe to send automatic email receipts to your customers, your receipt emails will include the description of the charge(s) that they are describing.</param>
+            <param name="customerId">The customer identifier: The ID of an existing customer that will be charged in this request.</param>
+            <param name="error">The error.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CustomerProvider">
+            <summary>
+            Interface for CRUD related to customers with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CustomerProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CustomerProvider"/> class.
+            </summary>
+            <param name="apiKey">The API key.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CustomerProvider.CreateCustomerAsync(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Creates the customer asynchronous.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialEnd">The trial end.</param>
+            <param name="cardToken">The card token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CustomerProvider.UpdateCustomer(SaasEcom.Core.Models.SaasEcomUser,SaasEcom.Core.Models.CreditCard)">
+            <summary>
+            Updates the customer.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="card">The card.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.CustomerProvider.DeleteCustomer(SaasEcom.Core.Models.SaasEcomUser)">
+            <summary>
+            Deletes the customer.
+            </summary>
+            <param name="user">The user.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider">
+            <summary>
+            Subscription Plan Provider
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider"/> class.
+            </summary>
+            <param name="apiKey">The API key.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider.Add(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Adds the specified plan.
+            </summary>
+            <param name="plan">The plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider.Update(SaasEcom.Core.Models.SubscriptionPlan)">
+            <summary>
+            Updates the specified plan.
+            </summary>
+            <param name="plan">The plan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider.Delete(System.String)">
+            <summary>
+            Deletes the specified plan identifier.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider.FindAsync(System.String)">
+            <summary>
+            Finds the subscription plan by Id asynchronous.
+            </summary>
+            <param name="planId">The plan identifier.</param>
+            <returns>Stripe plan</returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionPlanProvider.GetAllAsync(System.Object)">
+            <summary>
+            Gets all subscription plans asynchronous.
+            </summary>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider">
+            <summary>
+            Implementation for subscription management with Stripe
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider"/> class.
+            </summary>
+            <param name="apiKey">The API key.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.SubscribeUser(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Int32,System.Decimal)">
+            <summary>
+            Subscribes the user.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialInDays">The trial in days.</param>
+            <param name="taxPercent">The tax percent.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.SubscribeUser(SaasEcom.Core.Models.SaasEcomUser,System.String,System.Nullable{System.DateTime},System.Decimal)">
+            <summary>
+            Subscribes the user.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="planId">The plan identifier.</param>
+            <param name="trialEnds">The trial ends.</param>
+            <param name="taxPercent">The tax percent.</param>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.UserSubscriptionsAsync(System.String)">
+            <summary>
+            Gets the User's subscriptions asynchronous.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.EndSubscription(System.String,System.String,System.Boolean)">
+            <summary>
+            Ends the subscription.
+            </summary>
+            <param name="userStripeId">The user stripe identifier.</param>
+            <param name="subStripeId">The sub stripe identifier.</param>
+            <param name="cancelAtPeriodEnd">if set to <c>true</c> [cancel at period end].</param>
+            <returns>
+            The date when the subscription will be cancelled
+            </returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.UpdateSubscription(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Updates the subscription. (Change subscription plan)
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="subStripeId">The sub stripe identifier.</param>
+            <param name="newPlanId">The new plan identifier.</param>
+            <param name="proRate">if set to <c>true</c> [pro rate].</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe.SubscriptionProvider.UpdateSubscriptionTax(System.String,System.String,System.Decimal)">
+            <summary>
+            Updates the subscription tax.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="subStripeId">The sub stripe identifier.</param>
+            <param name="taxPercent">The tax percent.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SaasEcom.Core.Models.BillingAddress">
+            <summary>
+            Class that represents a billing Address for a customer
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.Name">
+            <summary>
+            Gets or sets the name of the person / company.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.AddressLine1">
+            <summary>
+            Gets or sets the address line1.
+            </summary>
+            <value>
+            The address line1.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.AddressLine2">
+            <summary>
+            Gets or sets the address line2.
+            </summary>
+            <value>
+            The address line2.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+            <value>
+            The city.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.ZipCode">
+            <summary>
+            Gets or sets the zip code.
+            </summary>
+            <value>
+            The zip code.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>
+            The country.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.BillingAddress.Vat">
+            <summary>
+            Gets or sets the vat.
+            </summary>
+            <value>
+            The vat.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.SaasEcomUser">
+            <summary>
+            Saas Ecom User, used as base class for your Application User
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SaasEcomUser.GenerateUserIdentityAsync(Microsoft.AspNet.Identity.UserManager{SaasEcom.Core.Models.SaasEcomUser})">
+            <summary>
+            Generates the user identity asynchronous.
+            </summary>
+            <param name="manager">The manager.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SaasEcomUser.HasUserDetails">
+            <summary>
+            Determines whether [has user details].
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SaasEcomUser.HasPaymentDetails">
+            <summary>
+            Determines whether [has payment details].
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.RegistrationDate">
+            <summary>
+            Gets or sets the registration date for the user.
+            </summary>
+            <value>
+            The registration date.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.LastLoginTime">
+            <summary>
+            Gets or sets the last login time.
+            </summary>
+            <value>
+            The last login time.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.StripeCustomerId">
+            <summary>
+            Gets or sets the stripe customer identifier.
+            </summary>
+            <value>
+            The stripe customer identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.Subscriptions">
+            <summary>
+            Gets or sets the subscriptions.
+            </summary>
+            <value>
+            The subscriptions.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.Invoices">
+            <summary>
+            Gets or sets the invoices.
+            </summary>
+            <value>
+            The invoices.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.CreditCards">
+            <summary>
+            Gets or sets the credit cards.
+            </summary>
+            <value>
+            The credit cards.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.IPAddress">
+            <summary>
+            Gets or sets the ip address.
+            </summary>
+            <value>
+            The ip address.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.IPAddressCountry">
+            <summary>
+            Gets or sets the ip address country.
+            </summary>
+            <value>
+            The ip address country.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.Delinquent">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SaasEcom.Core.Models.SaasEcomUser"/> is delinquent. Whether or not the latest charge for the customer’s latest invoice has failed
+            </summary>
+            <value>
+              <c>true</c> if delinquent; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SaasEcomUser.LifetimeValue">
+            <summary>
+            Gets or sets the lifetime value for the customer (total spent in the app)
+            </summary>
+            <value>
+            The lifetime value.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.CreditCard">
+            <summary>
+            Credit Card
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Models.CreditCard.ClearCreditCardDetails">
+            <summary>
+            Clears the credit card details.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.StripeId">
+            <summary>
+            Gets or sets the stripe identifier.
+            </summary>
+            <value>
+            The stripe identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.StripeToken">
+            <summary>
+            Gets or sets the stripe token. Represents a credit card stored in Stripe.
+            </summary>
+            <value>
+            The stripe token.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.Name">
+            <summary>
+            Gets or sets the name on the card.
+            </summary>
+            <value>
+            The name on the card.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.Last4">
+            <summary>
+            Gets or sets the last 4 digits of the credit card.
+            </summary>
+            <value>
+            The last4.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.Fingerprint">
+            <summary>
+            Uniquely identifies this particular card number. You can use this attribute to check whether two customers who’ve signed up with you are using the same card number, for example.
+            </summary>
+            <value>
+            The fingerprint.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.AddressCity">
+            <summary>
+            Gets or sets the address city.
+            </summary>
+            <value>
+            The address city.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.AddressCountry">
+            <summary>
+            Gets or sets the address country.
+            </summary>
+            <value>
+            The address country.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.AddressLine1">
+            <summary>
+            Gets or sets the address line1.
+            </summary>
+            <value>
+            The address line1.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.AddressLine2">
+            <summary>
+            Gets or sets the address line2.
+            </summary>
+            <value>
+            The address line2.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.AddressState">
+            <summary>
+            Gets or sets the state of the address.
+            </summary>
+            <value>
+            The state of the address.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.AddressZip">
+            <summary>
+            Gets or sets the address zip.
+            </summary>
+            <value>
+            The address zip.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.CardNumber">
+            <summary>
+            Gets or sets the card number. (Not stored in the Database)
+            </summary>
+            <value>
+            The card number.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.Cvc">
+            <summary>
+            Gets or sets the CVC.
+            </summary>
+            <value>
+            The CVC.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.ExpirationMonth">
+            <summary>
+            Gets or sets the expiration month.
+            </summary>
+            <value>
+            The expiration month.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.ExpirationYear">
+            <summary>
+            Gets or sets the expiration year.
+            </summary>
+            <value>
+            The expiration year.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.CardCountry">
+            <summary>
+            Gets or sets the Two-letter ISO code representing the country of the card.  (This is returned by Stripe)
+            </summary>
+            <value>
+            The card country.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.CreditCard.SaasEcomUserId">
+            <summary>
+            Gets or sets the saas ecom user identifier.
+            </summary>
+            <value>
+            The saas ecom user identifier.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.Invoice">
+            <summary>
+            Invoices are statements of what a customer owes for a particular billing period, including subscriptions, invoice items, and any automatic proration adjustments if necessary.
+            Once an invoice is created, payment is automatically attempted. Note that the payment, while automatic, does not happen exactly at the time of invoice creation. If you have configured webhooks, the invoice will wait until one hour after the last webhook is successfully sent (or the last webhook times out after failing).
+            Any customer credit on the account is applied before determining how much is due for that invoice (the amount that will be actually charged). If the amount due for the invoice is less than 50 cents (the minimum for a charge), we add the amount to the customer's running account balance to be added to the next invoice. If this amount is negative, it will act as a credit to offset the next invoice. Note that the customer account balance does not include unpaid invoices; it only includes balances that need to be taken into account when calculating the amount due for the next invoice.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.StripeId">
+            <summary>
+            Gets or sets the stripe identifier.
+            </summary>
+            <value>
+            The stripe identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.StripeCustomerId">
+            <summary>
+            Gets or sets the stripe customer identifier.
+            </summary>
+            <value>
+            The stripe customer identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Customer">
+            <summary>
+            Gets or sets the customer.
+            </summary>
+            <value>
+            The customer.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.PeriodStart">
+            <summary>
+            Gets or sets the period start.
+            </summary>
+            <value>
+            The period start.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.PeriodEnd">
+            <summary>
+            Gets or sets the period end.
+            </summary>
+            <value>
+            The period end.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItems">
+            <summary>
+            Gets or sets the line items.
+            </summary>
+            <value>
+            The line items.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Subtotal">
+            <summary>
+            Gets or sets the subtotal.
+            Total of all subscriptions, invoice items, and prorations on the invoice before any discount is applied
+            </summary>
+            <value>
+            The subtotal.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Total">
+            <summary>
+            Gets or sets the total.
+            Total after discount
+            </summary>
+            <value>
+            The total.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Attempted">
+            <summary>
+            Gets or sets the attempted.
+            Whether or not an attempt has been made to pay the invoice. An invoice is not attempted until 1 hour after the invoice.created webhook, for example, so you might not want to display that invoice as unpaid to your users.
+            </summary>
+            <value>
+            The attempted.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Closed">
+            <summary>
+            Gets or sets the closed.
+            </summary>
+            <value>
+            The closed.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Paid">
+            <summary>
+            Gets or sets the paid.
+            Whether or not payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer’s account balance.
+            </summary>
+            <value>
+            The paid.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.AttemptCount">
+            <summary>
+            Gets or sets the attempt count.
+            Number of payment attempts made for this invoice, from the perspective of the payment retry schedule. Any payment attempt counts as the first attempt, and subsequently only automatic retries increment the attempt count. In other words, manual payment attempts after the first attempt do not affect the retry schedule.
+            </summary>
+            <value>
+            The attempt count.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.AmountDue">
+            <summary>
+            Gets or sets the amount due.
+            Final amount due at this time for this invoice. If the invoice’s total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the amount_due may be 0. If there is a positive starting_balance for the invoice (the customer owes money), the amount_due will also take that into account. The charge that gets generated for the invoice will be for the amount specified in amount_due.
+            </summary>
+            <value>
+            The amount due.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.StartingBalance">
+            <summary>
+            Gets or sets the starting balance.
+            </summary>
+            <value>
+            The starting balance.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.EndingBalance">
+            <summary>
+            Gets or sets the ending balance.
+            </summary>
+            <value>
+            The ending balance.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.NextPaymentAttempt">
+            <summary>
+            Gets or sets the next payment attempt.
+            The time at which payment will next be attempted.
+            </summary>
+            <value>
+            The next payment attempt.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.ApplicationFee">
+            <summary>
+            Gets or sets the application fee.
+            The fee in cents that will be applied to the invoice and transferred to the application owner’s Stripe account when the invoice is paid.
+            </summary>
+            <value>
+            The application fee.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Tax">
+            <summary>
+            Gets or sets the tax.
+            The amount of tax included in the total, calculated from tax_percent and the subtotal. If no tax_percent is defined, this value will be null.
+            </summary>
+            <value>
+            The tax.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.TaxPercent">
+            <summary>
+            This percentage of the subtotal has been added to the total amount of the invoice, including invoice line items and discounts. This field is inherited from the subscription’s tax_percent field, but can be changed before the invoice is paid. This field defaults to null.
+            </summary>
+            <value>
+            The tax percent.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <value>
+            The currency.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.BillingAddress">
+            <summary>
+            Gets or sets the billing address.
+            </summary>
+            <value>
+            The billing address.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.CurrencyDetails">
+            <summary>
+            Gets the currency details.
+            </summary>
+            <value>
+            The currency details.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.InvoicePeriod">
+            <summary>
+            Gets the invoice period.
+            </summary>
+            <value>
+            The invoice period.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.StatementDescriptor">
+            <summary>
+            Gets or sets the statement description.
+            </summary>
+            <value>
+            The statement description.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.ReceiptNumber">
+            <summary>
+            Gets or sets the receipt number.
+            </summary>
+            <value>
+            The receipt number.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Forgiven">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SaasEcom.Core.Models.Invoice.Plan"/> is forgiven.
+            Whether or not the invoice has been forgiven. Forgiving an invoice instructs us to update the subscription status as if the invoice were succcessfully paid. Once an invoice has been forgiven, it cannot be unforgiven or reopened.
+            </summary>
+            <value>
+              <c>true</c> if forgiven; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.Invoice.LineItem">
+            <summary>
+            Invoice Line Item
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.StripeLineItemId">
+            <summary>
+            Gets or sets the stripe line item identifier.
+            </summary>
+            <value>
+            The stripe line item identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>
+            The amount.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <value>
+            The currency.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Proration">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SaasEcom.Core.Models.Invoice.LineItem"/> is proration.
+            Whether or not the invoice item was created automatically as a proration adjustment when the customer switched plans
+            </summary>
+            <value>
+              <c>true</c> if proration; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Period">
+            <summary>
+            Gets or sets the period.
+            </summary>
+            <value>
+            The period.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            If the invoice item is a proration, the quantity of the subscription that the proration was computed for.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.LineItem.Plan">
+            <summary>
+            Gets or sets the plan.
+            </summary>
+            <value>
+            The plan.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.Invoice.Period">
+            <summary>
+            Invoice Period
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Period.Start">
+            <summary>
+            Gets or sets the start.
+            </summary>
+            <value>
+            The start.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Period.End">
+            <summary>
+            Gets or sets the end.
+            </summary>
+            <value>
+            The end.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.Invoice.Plan">
+            <summary>
+            Invoice Plan
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.StripePlanId">
+            <summary>
+            Gets or sets the stripe plan identifier.
+            </summary>
+            <value>
+            The stripe plan identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.Interval">
+            <summary>
+            Gets or sets the interval.
+            One of day, week, month or year. The frequency with which a subscription should be billed.
+            </summary>
+            <value>
+            The interval.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.Created">
+            <summary>
+            Gets or sets the created.
+            </summary>
+            <value>
+            The created.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.AmountInCents">
+            <summary>
+            Gets or sets the amount in cents.
+            The amount in cents to be charged on the interval specified
+            </summary>
+            <value>
+            The amount in cents.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <value>
+            The currency.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.IntervalCount">
+            <summary>
+            Gets or sets the interval count.
+            The number of intervals (specified in the interval property) between each subscription billing. For example, interval=month and interval_count=3 bills every 3 months.
+            </summary>
+            <value>
+            The interval count.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.TrialPeriodDays">
+            <summary>
+            Gets or sets the trial period days.
+            Number of trial period days granted when subscribing a customer to this plan. Null if the plan has no trial period.
+            </summary>
+            <value>
+            The trial period days.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Invoice.Plan.StatementDescriptor">
+            <summary>
+            Gets or sets the statement descriptor.
+            Extra information about a charge for the customer’s credit card statement.
+            </summary>
+            <value>
+            The statement descriptor.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.Subscription">
+            <summary>
+            Subscription
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Models.Subscription.IsTrialing">
+            <summary>
+            Determines whether this instance is trialing.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.Start">
+            <summary>
+            Gets or sets the start.
+            </summary>
+            <value>
+            The start.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.End">
+            <summary>
+            Gets or sets the end.
+            </summary>
+            <value>
+            The end.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.TrialStart">
+            <summary>
+            Gets or sets the trial start.
+            </summary>
+            <value>
+            The trial start.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.TrialEnd">
+            <summary>
+            Gets or sets the trial end.
+            </summary>
+            <value>
+            The trial end.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.SubscriptionPlanId">
+            <summary>
+            Gets or sets the subscription plan identifier.
+            </summary>
+            <value>
+            The subscription plan identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.SubscriptionPlan">
+            <summary>
+            Gets or sets the subscription plan.
+            </summary>
+            <value>
+            The subscription plan.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+            <value>
+            The user identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.User">
+            <summary>
+            Gets or sets the user.
+            </summary>
+            <value>
+            The user.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.StripeId">
+            <summary>
+            Gets or sets the stripe identifier.
+            </summary>
+            <value>
+            The stripe identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.Status">
+            <summary>
+            Subscription status: Possible values are trialing, active, past_due, canceled, or unpaid. A subscription still in its trial period is trialing and moves to active when the trial period is over. When payment to renew the subscription fails, the subscription becomes past_due. After Stripe has exhausted all payment retry attempts, the subscription ends up with a status of either canceled or unpaid depending on your retry settings. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.TaxPercent">
+            <summary>
+            Update the amount of tax applied to this subscription. Changing the tax_percent of a subscription will only affect future invoices.
+            </summary>
+            <value>
+            The tax percent.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.Subscription.ReasonToCancel">
+            <summary>
+            Gets or sets the reason to cancel.
+            </summary>
+            <value>
+            The reason to cancel.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Models.SubscriptionPlan">
+            <summary>
+            Subscription Plan
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SubscriptionPlan.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SaasEcom.Core.Models.SubscriptionPlan"/> class.
+            </summary>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SubscriptionPlan.GetProperty(System.String)">
+            <summary>
+            Gets the property.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SubscriptionPlan.GetPropertyInt(System.String)">
+            <summary>
+            Gets the property int.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Property for key:  + key + does not exist.</exception>
+        </member>
+        <member name="M:SaasEcom.Core.Models.SubscriptionPlan.GetPropertyLong(System.String)">
+            <summary>
+            Gets the property long.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception">Property for key:  + key + does not exist.</exception>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Price">
+            <summary>
+            Gets or sets the price.
+            </summary>
+            <value>
+            The price.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <value>
+            The currency.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.CurrencyDetails">
+            <summary>
+            Gets the currency details.
+            </summary>
+            <value>
+            The currency details.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Interval">
+            <summary>
+            Gets or sets the interval.
+            </summary>
+            <value>
+            The interval.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.TrialPeriodInDays">
+            <summary>
+            Gets or sets the trial period in days.
+            </summary>
+            <value>
+            The trial period in days.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Disabled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:SaasEcom.Core.Models.SubscriptionPlan"/> is disabled.
+            </summary>
+            <value>
+              <c>true</c> if disabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlan.Properties">
+            <summary>
+            Collection of properties related to this plan (Maximum users, storage, etc)
+            </summary>
+        </member>
+        <member name="T:SaasEcom.Core.Models.SubscriptionPlan.SubscriptionInterval">
+            <summary>
+            Subscription Interval
+            </summary>
+        </member>
+        <member name="F:SaasEcom.Core.Models.SubscriptionPlan.SubscriptionInterval.Monthly">
+            <summary>
+            Monthly
+            </summary>
+        </member>
+        <member name="F:SaasEcom.Core.Models.SubscriptionPlan.SubscriptionInterval.Yearly">
+            <summary>
+            Yearly
+            </summary>
+        </member>
+        <member name="F:SaasEcom.Core.Models.SubscriptionPlan.SubscriptionInterval.Weekly">
+            <summary>
+            Weekly
+            </summary>
+        </member>
+        <member name="F:SaasEcom.Core.Models.SubscriptionPlan.SubscriptionInterval.EverySixMonths">
+            <summary>
+            Every 6 months
+            </summary>
+        </member>
+        <member name="F:SaasEcom.Core.Models.SubscriptionPlan.SubscriptionInterval.EveryThreeMonths">
+            <summary>
+            Every 3 months
+            </summary>
+        </member>
+        <member name="T:SaasEcom.Core.Models.SubscriptionPlanProperty">
+            <summary>
+            Subscription plan property. Eg: 3 Gb Max storage, 1000 projects, etc.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlanProperty.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlanProperty.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlanProperty.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="P:SaasEcom.Core.Models.SubscriptionPlanProperty.SubscriptionPlan">
+            <summary>
+            Gets or sets the subscription plan that the property belongs to.
+            </summary>
+            <value>
+            The subscription plan.
+            </value>
+        </member>
+        <member name="T:SaasEcom.Core.Resources.SaasEcom">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_AddressLine1_Address_1">
+            <summary>
+              Looks up a localized string similar to Address 1.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_AddressLine2_Address_2">
+            <summary>
+              Looks up a localized string similar to Address 2.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_City_City">
+            <summary>
+              Looks up a localized string similar to City.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_Country_Country">
+            <summary>
+              Looks up a localized string similar to Country.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_Name_Name">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_State_State">
+            <summary>
+              Looks up a localized string similar to State.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_Vat_VAT_Number">
+            <summary>
+              Looks up a localized string similar to VAT Number.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.BillingAddress_ZipCode_Zip_Code">
+            <summary>
+              Looks up a localized string similar to Zip Code.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressCity_City">
+            <summary>
+              Looks up a localized string similar to City.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressCity_Please_enter_your_City_">
+            <summary>
+              Looks up a localized string similar to Please enter your City..
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressCountry_Country">
+            <summary>
+              Looks up a localized string similar to Country.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressCountry_Please_enter_your_Country">
+            <summary>
+              Looks up a localized string similar to Please enter your Country.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressLine1_Address">
+            <summary>
+              Looks up a localized string similar to Address.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressLine1_Please_enter_your_address_">
+            <summary>
+              Looks up a localized string similar to Please enter your address..
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressLine2_Address">
+            <summary>
+              Looks up a localized string similar to Address.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressState_State">
+            <summary>
+              Looks up a localized string similar to State.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressZip_Please_enter_your_Post_Code_">
+            <summary>
+              Looks up a localized string similar to Please enter your Post Code..
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_AddressZip_Post_code">
+            <summary>
+              Looks up a localized string similar to Post code.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_CardNumber_Card_Number">
+            <summary>
+              Looks up a localized string similar to Card Number.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_Cvc__3_digits_only">
+            <summary>
+              Looks up a localized string similar to 3 digits only.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_Cvc_CVC">
+            <summary>
+              Looks up a localized string similar to CVC.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_Cvc_Required">
+            <summary>
+              Looks up a localized string similar to Required.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_ExpirationMonth_Invalid">
+            <summary>
+              Looks up a localized string similar to Invalid.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_Name_Name">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.CreditCard_Name_Please_enter_the_name_on_the_card_">
+            <summary>
+              Looks up a localized string similar to Please enter the name on the card..
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.SubscriptionInterval_EverySixMonths_Every_6_months">
+            <summary>
+              Looks up a localized string similar to Every 6 months.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.SubscriptionInterval_EveryThreeMonths_Every_3_months">
+            <summary>
+              Looks up a localized string similar to Every 3 months.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.SubscriptionInterval_Monthly_Monthly">
+            <summary>
+              Looks up a localized string similar to Monthly.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.SubscriptionInterval_Weekly_Weekly">
+            <summary>
+              Looks up a localized string similar to Weekly.
+            </summary>
+        </member>
+        <member name="P:SaasEcom.Core.Resources.SaasEcom.SubscriptionInterval_Yearly_Yearly">
+            <summary>
+              Looks up a localized string similar to Yearly.
+            </summary>
+        </member>
+    </members>
+</doc>

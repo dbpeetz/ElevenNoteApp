@@ -15,3 +15,20 @@ c:\users\balleronabudget\documents\visual studio 2017\Projects\ElevenNote\Eleven
 C:\Users\BallerOnABudget\documents\visual studio 2017\Projects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.InitialCreate.resources
 C:\Users\BallerOnABudget\documents\visual studio 2017\Projects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.GenerateResource.Cache
 C:\Users\BallerOnABudget\documents\visual studio 2017\Projects\ElevenNote\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.AddIsStarred.resources
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\ElevenNote.Data.dll.config
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\ElevenNote.Data.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\ElevenNote.Data.pdb
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\EntityFramework.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\EntityFramework.xml
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\obj\Debug\ElevenNote.Data.csprojResolveAssemblyReference.cache
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.InitialCreate.resources
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\obj\Debug\ElevenNote.Data.Migrations.AddIsStarred.resources
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\obj\Debug\ElevenNote.Data.csproj.GenerateResource.Cache
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\obj\Debug\ElevenNote.Data.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Data\obj\Debug\ElevenNote.Data.pdb

@@ -5,21 +5,8 @@ c:\users\balleronabudget\documents\visual studio 2017\Projects\ElevenNote\Eleven
 c:\users\balleronabudget\documents\visual studio 2017\Projects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.pdb
 C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
 C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll.mdb
-C:\VSProjects\ElevenNote\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll.mdb
+C:\VSProjects\ElevenNoteApp\ElevenNote.Models\bin\Debug\ElevenNote.Models.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Models\bin\Debug\ElevenNote.Models.pdb
+C:\VSProjects\ElevenNoteApp\ElevenNote.Models\obj\Debug\ElevenNote.Models.csprojResolveAssemblyReference.cache
+C:\VSProjects\ElevenNoteApp\ElevenNote.Models\obj\Debug\ElevenNote.Models.dll
+C:\VSProjects\ElevenNoteApp\ElevenNote.Models\obj\Debug\ElevenNote.Models.pdb
