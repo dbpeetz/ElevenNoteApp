@@ -123,9 +123,17 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ElevenNote.Data\ElevenNote.Data.csproj">
+      <Project>{184875d4-edd7-4d1d-97ed-58682ae15bdb}</Project>
+      <Name>ElevenNote.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ElevenNote.Models\ElevenNote.Models.csproj">
       <Project>{6afb125c-3083-49b9-a319-1c62558ed81a}</Project>
       <Name>ElevenNote.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ElevenNote.Service\ElevenNote.Service.csproj">
+      <Project>{9e7c51d8-59a6-4680-b6b9-ece7e3c5d0e1}</Project>
+      <Name>ElevenNote.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

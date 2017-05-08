@@ -230,8 +230,12 @@
     <Content Include="Content\card-icons\maestro.png" />
     <Content Include="Content\card-icons\MasterCard.png" />
     <Content Include="Content\card-icons\Visa.png" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\clean-blog.css" />
     <Content Include="Content\css\clean-blog.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\js\clean-blog.js" />
     <Content Include="Content\js\clean-blog.min.js" />

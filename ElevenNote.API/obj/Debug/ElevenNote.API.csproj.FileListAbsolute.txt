@@ -149,12 +149,6 @@ C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\ElevenNote.Service.dll
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\EntityFramework.dll
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\EntityFramework.SqlServer.dll
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.Agent.Intercept.dll
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.DependencyCollector.dll
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.Web.dll
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.WindowsServer.dll
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.ApplicationInsights.dll
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AspNet.Identity.Core.dll
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -193,11 +187,6 @@ C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\ElevenNote.Service.dll.config
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Antlr3.Runtime.pdb
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\EntityFramework.xml
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\EntityFramework.SqlServer.xml
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.DependencyCollector.xml
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.Web.xml
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AI.WindowsServer.xml
-C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.ApplicationInsights.xml
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AspNet.Identity.Core.xml
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\VSProjects\ElevenNoteApp\ElevenNote.API\bin\Microsoft.AspNet.Identity.Owin.xml
